@@ -1,0 +1,86 @@
+
+  
+ SUBROUTINE show(HUT,JUT)
+
+ IMPLICIT NONE
+  REAL,DIMENSION(39)::X
+  REAL,DIMENSION(1:39)::LOKI
+  REAL,DIMENSION(39)::SUM1
+  INTEGER::i,g,u
+  REAL::SD,B
+  REAL::HUT,JUT
+  
+
+
+  OPEN(2,FILE="MAXIMUM.txt",STATUS="OLD")
+ 
+  READ(2,*,END=45)X
+45 CONTINUE
+  HUT=SUM(X)/39
+  CLOSE(2)
+
+  OPEN(2,FILE="MAXIMUM.txt",STATUS="OLD")
+  DO i=1,39
+     READ(2,*,END=50)LOKI(i)
+50 CONTINUE
+     SD=(LOKI(i)-HUT)**2
+     
+     OPEN(10,FILE="SUM OF X.txt",STATUS="OLD")
+     WRITE(10,*)SD
+     
+  END DO
+  CLOSE(2)
+  CLOSE(10)
+ 
+  OPEN(10,FILE="SUM OF X.txt",STATUS="OLD")
+  
+  READ(10,*,END=200)SUM1
+200 CONTINUE
+  B=SUM(SUM1)
+  
+ 
+  JUT=SQRT(B/39)
+ !print*,HUT
+ ! print*,JUT
+ 
+  CLOSE(10)
+  RETURN
+  
+END SUBROUTINE show
+
+PROGRAM ANOMALIES
+  IMPLICIT NONE
+  REAL,DIMENSION(1:39)::DUMBO
+  
+  REAL::HUT,JUT,ANO
+  INTEGER::m,ki,l,f
+  CALL show(HUT,JUT)
+  OPEN(2,FILE="MAXIMUM.txt",STATUS="OLD")
+  DO m =1,39
+      
+     
+     READ(2,*,END=49)DUMBO(m)
+49   CONTINUE
+     ANO=(DUMBO(m)-HUT)/JUT
+
+
+     DO l=1979,2017
+
+        f=0
+        f=f+1
+ 
+  do f=1,l
+     
+   
+        
+   
+     END DO
+     OPEN(33,FILE="ANOMALY VALUES",STATUS="OLD")
+     
+     WRITE(33,'(F5.2,2x,I4)')ANO,f
+     end do
+  END DO
+  
+  CLOSE(2)
+  CLOSE(33)
+END PROGRAM ANOMALIES

@@ -1,0 +1,7 @@
+PROGRAM EXAMPLE
+  use year
+  implicit none
+  real::c
+  c=avg+10
+  print*,c
+end program EXAMPLE

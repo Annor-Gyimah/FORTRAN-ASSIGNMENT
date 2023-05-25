@@ -1,0 +1,16 @@
+module constants
+  !
+  implicit none
+  !
+  real,dimension(38)::tc
+  real::s,TC
+contains
+  subroutine show_consts()
+    open(14,file"maximum.txt",status="old")
+    read(14,*,end=360)
+360 s=sum(tc)
+    TC=s/38
+    print*,TC
+    close(14)
+  end subroutine show_consts
+end module constants

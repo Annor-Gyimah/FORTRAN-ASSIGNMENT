@@ -1,0 +1,119 @@
+program module
+  implicit none
+  real,dimension(38)::vit
+  real,dimension(38)::pol
+  real::slit,T,cat,SD
+  real::a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,tk,u,v,w,x,y,ol,az,bz,cz,dz,ez,fz,gz,hz,iz,jz,kz,mz
+
+  
+  open(14,file="maximum.txt",status="old")
+  read(14,*,end=123)vit
+123 slit=sum(vit)
+  T=slit/38
+  
+  close(14)
+
+ 
+  a=(27.62-T)**2
+  b=(26.76-T)**2
+  c=(27.24-T)**2
+  d=(28.05-T)**2
+  e=(27.26-T)**2
+  f=(27.26-T)**2
+  g=(27.81-T)**2
+  h=(28.02-T)**2
+  i=(27.89-T)**2
+  j=(27.95-T)**2
+  k=(27.60-T)**2
+  l=(27.04-T)**2
+  m=(27.82-T)**2
+  n=(27.48-T)**2
+  o=(27.87-T)**2
+  p=(28.09-T)**2
+  q=(25.56-T)**2
+  r=(27.87-T)**2
+  s=(28.41-T)**2
+  tk=(27.32-T)**2
+  u=(28.49-T)**2
+  v=(28.08-T)**2
+  w=(28.16-T)**2
+  x=(28.38-T)**2
+  y=(28.18-T)**2
+  ol=(23.17-T)**2
+  az=(28.02-T)**2
+  bz=(28.62-T)**2
+  cz=(28.59-T)**2
+  dz=(28.19-T)**2
+  ez=(28.61-T)**2
+  fz=(26.13-T)**2
+  gz=(28.15-T)**2
+  hz=(28.58-T)**2
+  iz=(27.62-T)**2
+  jz=(28.26-T)**2
+  kz=(28.44-T)**2
+  mz=(25.90-T)**2
+  open(95,file="standard.txt",status="old")
+  write(95,'(F5.2)')a
+  write(95,'(F5.2)')b
+  write(95,'(F5.2)')c
+  write(95,'(F5.2)')d
+  write(95,'(F5.2)')e
+  write(95,'(F5.2)')f
+  write(95,'(F5.2)')g
+  write(95,'(F5.2)')h
+  write(95,'(F5.2)')i
+  write(95,'(F5.2)')j
+  write(95,'(F5.2)')k
+  write(95,'(F5.2)')l
+  write(95,'(F5.2)')m
+  write(95,'(F5.2)')n
+  write(95,'(F5.2)')o
+  write(95,'(F5.2)')p
+  write(95,'(F5.2)')q
+  write(95,'(F5.2)')r
+  write(95,'(F5.2)')s
+  write(95,'(F5.2)')tk
+  write(95,'(F5.2)')u
+  write(95,'(F5.2)')v
+  write(95,'(F5.2)')w
+  write(95,'(F5.2)')x
+  write(95,'(F5.2)')y
+  write(95,'(F5.2)')ol
+  write(95,'(F5.2)')az
+  write(95,'(F5.2)')bz
+  write(95,'(F5.2)')cz
+  write(95,'(F5.2)')dz
+  write(95,'(F5.2)')ez
+  write(95,'(F5.2)')fz
+  write(95,'(F5.2)')gz
+  write(95,'(F5.2)')hz
+  write(95,'(F5.2)')i
+  write(95,'(F5.2)')jz
+  write(95,'(F5.2)')kz
+  write(95,'(F5.2)')mz
+
+  close(95)
+
+
+open(95,file="standard.txt",status="old")
+ read(95,*,end=910)pol
+910 cat=sum(pol)
+ PRINT*,cat
+ SD=SQRT(cat/38)
+ print*,SD
+! PRINT*,T
+ CLOSE(95)
+  
+open(94,file="Te.txt",status="old")
+write(94,'(F5.2)')T
+open(91,file="sd.txt",status="old")
+write(91,'(F5.2)')SD
+
+ 
+close(94)
+CLOSE(91)
+
+
+end program module
+
+

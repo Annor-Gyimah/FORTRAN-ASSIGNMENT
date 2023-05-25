@@ -1,0 +1,42 @@
+PROGRAM SCISA
+  IMPLICIT NONE
+  REAL,DIMENSION(14215)::HN,ANNUALHN,HM
+  REAL::ADD,AVERAGE
+  INTEGER::al,i,c,z,k,h
+  INTEGER,DIMENSION(14215)::yr,mo,dy,years
+  OPEN(5,FILE="Kumasi_era_dTn.txt",STATUS="OLD",ACTION="READ")
+  al=1
+  DO i=1,14215
+     READ(5,*,END=10)yr(i),mo(i),dy(i),HN(i)
+     al=al+1
+
+  END DO
+  10   CONTINUE
+  CLOSE(5)
+
+
+
+k=1
+DO z=1979,2017
+   ADD=0
+   AVERAGE=0
+   DO c=1,al
+      IF(yr(c)==z)THEN
+         years(k)=z
+         ADD=ADD+HN(c)
+         AVERAGE=ADD/365
+      END IF
+   END DO
+   ANNUALHN(k)=ADD
+   HM(k)=AVERAGE
+   k=k+1
+END DO
+
+
+OPEN(6,FILE="MINIMUM.txt",STATUS="OLD")
+DO h=1,39
+   WRITE(6,*)years(h),HN(h)
+END DO
+CLOSE(6)
+
+END PROGRAM SCISA

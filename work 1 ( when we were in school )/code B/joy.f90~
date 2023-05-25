@@ -1,0 +1,18 @@
+PROGRAM JET
+  IMPLICIT NONE
+  REAL,DIMENSION(14215)::yy,mo,dd,temp
+  REAL::ADD,AVERAGE
+  INTEGER::i
+  REAL,DIMENSION(14215)::YEARS,TT
+  OPEN(1,FILE="Kumasi_era_dTx.txt",STATUS="OLD",ACTION="READ")
+  DO i=1,14215
+      
+     READ(1,*,END=90)yy(i),mo(i),dd(i),temp(i)
+     
+  END DO
+90 CONTINUE
+  
+  CLOSE(1)
+END PROGRAM JET
+
+        

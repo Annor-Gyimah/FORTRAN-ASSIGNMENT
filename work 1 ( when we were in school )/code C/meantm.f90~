@@ -1,0 +1,23 @@
+program group1
+  implicit none
+  real,dimension(1)::Tx
+  real,dimension(1)::Tn
+  integer::a,b,c,d,TM
+
+  open(33,file="max.txt",status="old")
+  read(33,*,end=3)Tx
+3 a=1+2
+  close(33)
+
+   open(33,file="min.txt",status="old")
+  read(33,*,end=4)Tn
+4 b=1+3
+  close(33)
+  d=Tx+Tn
+  TM=d/2
+
+  open(23,file="mean_temp.txt",status="new")
+  write(23,*)TM
+  close(23)
+
+end program group1

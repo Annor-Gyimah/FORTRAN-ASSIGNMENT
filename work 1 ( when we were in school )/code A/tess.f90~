@@ -1,0 +1,14 @@
+program readdata
+  implicit none
+  real::x,y,z
+  integer::iounit,ios
+  open(14,file="maximum.txt", iostat=ios, action="read")
+  if (ios /=0)stop 1
+  do
+     read(14,*,iostat=ios)
+     if(ios /=0)exit
+     print*,x,y,z
+  end do
+  close(14)
+end program readdata
+
